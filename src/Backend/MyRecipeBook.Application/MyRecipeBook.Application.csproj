@@ -12,4 +12,11 @@
       <ProjectReference Include="..\MyRecipeBook.Domain\MyRecipeBook.Domain.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="AutoMapper" Version="14.0.0" />
+      <PackageReference Include="FluentValidation" Version="12.1.1" />
+      <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="8.0.2" />
+    </ItemGroup>
+
 </Project>
