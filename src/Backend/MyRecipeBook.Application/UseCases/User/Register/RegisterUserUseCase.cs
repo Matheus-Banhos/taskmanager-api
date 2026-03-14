@@ -1,7 +1,7 @@
 using AutoMapper;
 using FluentValidation.Results;
 using MyRecipeBook.Application.Services.AutoMapper;
-// using MyRecipeBook.Application.Services.Cryptography;
+using MyRecipeBook.Application.Services.Cryptography;
 using MyRecipeBook.Communication.Requests;
 using MyRecipeBook.Communication.Responses;
 using MyRecipeBook.Domain.Repositories;
@@ -16,7 +16,7 @@ public class RegisterUserUseCase : IRegisterUserUseCase
     private readonly IUserWriteOnlyRepository _writeOnlyRepository;
     private readonly IUserReadOnlyRepository _readOnlyRepository;
     private readonly IUnitOfWork _unitOfWork;
-    // private readonly PasswordEncripter _passwordEncripter;
+    private readonly PasswordEncripter _passwordEncripter;
     private readonly IMapper _mapper;
 
 
@@ -24,13 +24,13 @@ public class RegisterUserUseCase : IRegisterUserUseCase
         IUserWriteOnlyRepository writeOnlyRepository,
         IUserReadOnlyRepository readOnlyRepository,
         IUnitOfWork unitOfWork,
-        // PasswordEncripter passwordEncripter,
+        PasswordEncripter passwordEncripter,
         IMapper mapper)
     {
         _writeOnlyRepository =  writeOnlyRepository;
         _readOnlyRepository = readOnlyRepository;
         _unitOfWork = unitOfWork;
-        // _passwordEncripter = passwordEncripter;
+        _passwordEncripter = passwordEncripter;
         _mapper =  mapper;
     }
 
@@ -39,7 +39,7 @@ public async Task<ResponseRegisteredUserJson> Execute(RequestRegisterUserJson re
        await Validate(request);
 
         var user = _mapper.Map<Domain.Entities.User>(request);
-        // user.Password = _passwordEncripter.Encrypt(request.Password);
+        user.Password = _passwordEncripter.Encrypt(request.Password);
 
         await _writeOnlyRepository.Add(user);
         
@@ -58,8 +58,8 @@ public async Task<ResponseRegisteredUserJson> Execute(RequestRegisterUserJson re
         var result = validator.Validate(request);
         
         var emailExist = await _readOnlyRepository.ExistActiveUserWithEmail(request.Email);
-        // if (emailExist)
-        //     result.Errors.Add(new ValidationFailure(string.Empty,ResourceMessagesException));
+        if (emailExist)
+            result.Errors.Add(new ValidationFailure(string.Empty,ResourceMessagesException.EMAIL_ALREADY_REGISTERED));
 
         if (result.IsValid == false)
         {
