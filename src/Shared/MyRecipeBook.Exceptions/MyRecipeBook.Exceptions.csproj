@@ -6,4 +6,68 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="AutoMapper" Version="14.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Update="ResourceMessagesException.resx">
+        <Generator>PublicResXFileCodeGenerator</Generator>
+        <LastGenOutput>ResourceMessagesException.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="ResourceMessagesException.es.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>ResourceMessagesException.es.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="ResourceMessagesException.fr.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>ResourceMessagesException.fr.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="ResourceMessagesException.ja-JP.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>ResourceMessagesException.ja-JP.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="ResourceMessagesException.pt-BR.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>ResourceMessagesException.pt-BR.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="ResourceMessagesException.pt-PT.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>ResourceMessagesException.pt-PT.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="ResourceMessagesException.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>ResourceMessagesException.resx</DependentUpon>
+      </Compile>
+      <Compile Update="ResourceMessagesException.es.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>ResourceMessagesException.es.resx</DependentUpon>
+      </Compile>
+      <Compile Update="ResourceMessagesException.fr.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>ResourceMessagesException.fr.resx</DependentUpon>
+      </Compile>
+      <Compile Update="ResourceMessagesException.ja-JP.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>ResourceMessagesException.ja-JP.resx</DependentUpon>
+      </Compile>
+      <Compile Update="ResourceMessagesException.pt-BR.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>ResourceMessagesException.pt-BR.resx</DependentUpon>
+      </Compile>
+      <Compile Update="ResourceMessagesException.pt-PT.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>ResourceMessagesException.pt-PT.resx</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
 </Project>
